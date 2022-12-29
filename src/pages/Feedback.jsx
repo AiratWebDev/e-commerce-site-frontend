@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Form, Button} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Axios from "axios";
+import {forEach} from "react-bootstrap/ElementChildren";
 
 
 const Feedback = () => {
@@ -16,9 +17,21 @@ const Feedback = () => {
 
     function submitData(event) {
         event.preventDefault()
-        Axios.post(apiURL, {})
+        Axios.post(apiURL, {
+            name: data.name,
+            email: data.email,
+            topic: data.topic,
+            review: data.review
+        })
             .then((response) => console.log(response))
             .catch((error) => console.log(error))
+
+        const inputs = document.querySelectorAll('#name, #email, #topic, #review')
+        inputs.forEach(
+            (input) => {
+                input.value = ''
+            }
+        )
     }
 
     function handleData(event) {
