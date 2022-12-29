@@ -1,29 +1,28 @@
-import React, {useEffect, useState} from 'react';
+import React from "react";
 import {Link} from "react-router-dom";
 import FetchCatalogs from "../data/FetchCatalogs";
 
 const Navigation = () => {
     const catalogs = FetchCatalogs()
 
-    const CatalogName = catalogs.map(catalog => catalog.catalog)
-    const CatalogSlug = catalogs.map(catalog => catalog.slug_catalog)
-
     return (
-        <div>
+        <div className={'menu-container'}>
             <nav>
                 <ul>
-                    <li>
-                        <Link to="/">Главная</Link>
-                    </li>
-                    <li>
-                        <Link to="/about">О нас</Link>
-                    </li>
-                    <li>
-                        <Link to={`/${CatalogSlug[0]}`}>{CatalogName[0]}</Link>
-                    </li>
-                    <li>
-                        <Link to={`/${CatalogSlug[1]}`}>{CatalogName[1]}</Link>
-                    </li>
+                    <div className={'menu'}>
+                        <a>
+                            <Link to="/">Главная</Link>
+                        </a>
+
+                        {catalogs.map((catalog) =>
+                            <a>
+                                <Link to={`/${catalog.slug_catalog}`} key={catalog.id}> {catalog.catalog} </Link>
+                            </a>)
+                        }
+                        <a>
+                            <Link to="">Войти</Link>
+                        </a>
+                    </div>
                 </ul>
             </nav>
         </div>

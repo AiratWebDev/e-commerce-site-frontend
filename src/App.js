@@ -1,19 +1,20 @@
 import React from "react";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import About from './pages/About'
-import Main from './pages/Main'
+import {BrowserRouter} from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
+import Router from "./components/Router";
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return (
         <BrowserRouter>
-        <Navigation />
-        <Routes>
-            <Route path={'/'} element={<Main />} />
-            <Route path={'/about'} element={<About/>} />
-        </Routes>
-        <Footer/>
+            <div className="page">
+                <Navigation/>
+                <div className={'content'}>
+                    <Router/>
+                </div>
+                <Footer/>
+            </div>
         </BrowserRouter>
     )
 }

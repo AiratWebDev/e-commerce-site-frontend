@@ -10,9 +10,16 @@ const Main = () => {
         <>
             <Slider/>
             <p>Текст со страницы Main</p>
-            <div>
-                {products.map((product) => <div className={'Product'} style={{display: 'inline-block', margin: '30px'}}> <Product key={product.id} title={product.good} price={product.price}
-                                                    image={product.images}/> </div>)}
+            <div className={'products-container'}>
+                {products.map((product) =>
+                    <div className={'Product'}>
+                        <Product key={product.id}
+                                 title={product.good}
+                                 price={product.price}
+                                 image={product.images}
+                                 quantity={product.quantity}
+                        />
+                    </div>)}
             </div>
         </>
     )
