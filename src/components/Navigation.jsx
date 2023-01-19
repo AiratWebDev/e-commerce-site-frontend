@@ -1,9 +1,14 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Link} from "react-router-dom";
 import FetchCatalogs from "../data/FetchCatalogs";
+import Login from "./Login";
+import Registration from "./Registration";
+import AuthContext from "../context/AuthContext";
+import Logout from "./Logout";
 
 const Navigation = () => {
     const catalogs = FetchCatalogs()
+    const {user} = useContext(AuthContext)
 
     return (
         <div className={'menu-container'}>
@@ -19,9 +24,9 @@ const Navigation = () => {
                                 <Link to={`/${catalog.slug_catalog}`} key={catalog.id}> {catalog.catalog} </Link>
                             </a>)
                         }
-                        <a>
-                            <Link to="">Войти</Link>
-                        </a>
+
+                        {user ? <Logout/> : <a> <Login/> / <Registration/> </a>}
+
                     </div>
                 </ul>
             </nav>
