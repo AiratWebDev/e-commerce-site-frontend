@@ -29,19 +29,19 @@ const Login = () => {
                     {/*<Form onSubmit={(event) => submitData(event)}>*/}
                     <Form onSubmit={loginUser}>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Label>Имя</Form.Label>
-                            <Form.Control
-                                name={'username'}
-                                type="text"
-                                placeholder="Ваше имя"
-                                autoFocus
-                            />
+                            <Form.Label>Почтовый адрес</Form.Label>
                             {/*<Form.Control*/}
-                            {/*    name={'email'}*/}
-                            {/*    type="email"*/}
-                            {/*    placeholder="Ваш email"*/}
+                            {/*    name={'username'}*/}
+                            {/*    type="text"*/}
+                            {/*    placeholder="Ваше имя"*/}
                             {/*    autoFocus*/}
                             {/*/>*/}
+                            <Form.Control
+                                name={'email'}
+                                type="email"
+                                placeholder="Ваш email"
+                                autoFocus
+                            />
                         </Form.Group>
                         <Form.Group
                             className="mb-3"
@@ -68,21 +68,3 @@ const Login = () => {
 };
 
 export default Login;
-
-
-
-// const Login = () => {
-//     let {user} = useContext(AuthContext)
-//     let {loginUser} = useContext(AuthContext)
-//
-//     return (
-//         <div>
-//             {user && <p>Hello, {user.username}</p>}
-//             <form onSubmit={loginUser}>
-//                 <input type="text" name={'username'} placeholder={'Enter your name'}/>
-//                 <input type="password" name={'password'} placeholder={'Enter your password'}/>
-//                 <input type="submit"/>
-//             </form>
-//         </div>
-//     )
-// }

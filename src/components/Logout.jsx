@@ -6,7 +6,7 @@ const Logout = () => {
 
     return (
         <>
-            <a href="/cabinet">Личный кабинет, {user.username}</a>
+            <a href="/cabinet">Личный кабинет, {user.name}</a>
             <a href='' onClick={logoutUser}>Выйти</a>
         </>
     );

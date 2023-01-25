@@ -12,7 +12,7 @@ const Main = () => {
     return (
         <>
             <Slider/>
-            {user && <p>Текст со страницы Main для {user.username}</p>}
+            {user && <p>Текст со страницы Main для {user.name}</p>}
             <div className={'products-container'}>
                 {products.map((product) =>
                     <div className={'Product'}>
