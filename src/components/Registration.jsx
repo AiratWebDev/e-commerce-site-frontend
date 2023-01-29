@@ -17,12 +17,13 @@ const Registration = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const url = 'http://127.0.0.1:8000/api/register/'
+    const url = 'http://127.0.0.1:8000/api/user/register/'
 
     let register = async (event) => {
         event.preventDefault()
         console.log('Нажатие')
         console.log(data)
+
         await Axios.post(url,
             {
                 "username": data.name + ' ' + data.email,
@@ -100,7 +101,7 @@ const Registration = () => {
                                           onChange={(event) => handleData(event)}/>
                         </Form.Group>
                         <Modal.Footer>
-                            <Button variant="primary" type="submit" style={{width: '100%'}} onClick={handleClose}>
+                            <Button variant="primary" type="submit" style={{width: '100%', backgroundColor: '#4f72ff'}} onClick={handleClose}>
                                 Зарегистрироваться
                             </Button>
                         </Modal.Footer>

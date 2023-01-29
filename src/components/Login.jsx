@@ -56,7 +56,8 @@ const Login = () => {
                         >
                         </Form.Group>
                         <Modal.Footer>
-                            <Button type={'submit'} style={{width: '100%'}} variant="primary" onClick={handleClose}>
+                            <Button type={'submit'} style={{width: '100%', backgroundColor: '#4f72ff'}}
+                                    variant="primary" onClick={handleClose}>
                                 Войти
                             </Button>
                         </Modal.Footer>

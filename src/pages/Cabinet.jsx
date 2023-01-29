@@ -1,15 +1,32 @@
 import React, {useContext} from 'react';
-import AuthContext from "../context/AuthContext";
+
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
+
+import UserInfo from "../components/UserInfo";
 
 const Cabinet = () => {
-    const {user} = useContext(AuthContext)
-
     return (
-        <div>
-            <h1>Приветствуем, {user.name}</h1>
-            <p>Ваша почта — {user.email}</p>
-            <p>Текст со страницы личного кабинета</p>
-        </div>
+        <>
+            <div style={{padding: '30px'}}>
+                <Tabs
+                    defaultActiveKey="personal"
+                    id="fill-tab-example"
+                    className="mb-3"
+                >
+                    <Tab eventKey="personal" title="Личные данные">
+                        <UserInfo/>
+                    </Tab>
+                    <Tab eventKey="orders" title="Заказы">
+                        <h1>Список заказов</h1>
+                    </Tab>
+                </Tabs>
+
+
+            </div>
+        </>
     );
 };
 

@@ -73,7 +73,7 @@ const Feedback = () => {
                                   onChange={(event) => handleData(event)}/>
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" style={{backgroundColor: '#4f72ff'}}>
                     Отправить
                 </Button>
             </Form>
