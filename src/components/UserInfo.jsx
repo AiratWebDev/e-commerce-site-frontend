@@ -1,35 +1,13 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect} from 'react';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import AuthContext from "../context/AuthContext";
-import Axios from "axios";
+import FetchUsers from "../data/FetchUsers";
 
 
 const UserInfo = () => {
     const {user} = useContext(AuthContext)
-    const [userInfo, setUserInfo] = useState([])
-
-    const url = 'http://127.0.0.1:8000/api/user/get_info/'
-
-    const getInfo = async (event) => {
-        const response = await Axios.get(url, {
-            params: {
-                email: user.email,
-                name: user.name
-            }
-        })
-            .then()
-            .catch((error) => console.log('Ошибка: ' + error.response.data))
-
-        setUserInfo(response.data[0])
-    }
-
-    useEffect(() => {
-        setUserInfo([])
-        getInfo()
-        console.log(userInfo)
-        console.log(userInfo)
-    }, [])
+    let userInfo = FetchUsers()
 
     useEffect(() => {
             if (userInfo.gender === 'M') {
