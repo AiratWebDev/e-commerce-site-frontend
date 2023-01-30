@@ -4,7 +4,7 @@ import AuthContext from "../context/AuthContext";
 
 const FetchUsers = () => {
     const {user} = useContext(AuthContext)
-    const [userInfo, setUserInfo] = useState([])
+    const [userInfo, setUserInfo] = useState({})
 
     const url = 'http://127.0.0.1:8000/api/user/get_info/'
 
