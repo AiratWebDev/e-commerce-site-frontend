@@ -20,4 +20,6 @@
 
 ### Запуск
 
-`npm start`
+```javascript
+npm start
+```
